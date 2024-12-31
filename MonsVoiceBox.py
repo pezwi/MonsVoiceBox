@@ -18,7 +18,7 @@ except ImportError:
 class TTSApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Mons Voice Box 1.0.1")
+        self.root.title("Mons Voice Box 1.0.2")
         self.root.geometry("600x600")  # Increased size for tablet use
 
         self.receiver_ip = tk.StringVar(value="0.0.0.0")  # Default to listen on all interfaces
@@ -48,7 +48,7 @@ class TTSApp:
         import shutil
 
         repo_url = "https://api.github.com/repos/pezwi/MonsVoiceBox/releases/latest"
-        self.current_version = "v1.0.1"  # Replace with your app's actual current version
+        self.current_version = "v1.0.0"  # Replace with your app's actual current version
 
         try:
             # Fetch release information from GitHub
@@ -93,13 +93,13 @@ class TTSApp:
             # Step 1: Download the ZIP file
             response = requests.get(download_url, stream=True)
             response.raise_for_status()
-            zip_path = "update.zip"
+            zip_path = "MonsVoiceBox-1.0.1.zip"
             with open(zip_path, "wb") as file:
                 for chunk in response.iter_content(chunk_size=8192):
                     file.write(chunk)
 
             # Step 2: Extract the ZIP file
-            extract_path = "update_temp"
+            extract_path = "C:/temp"
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(extract_path)
 
